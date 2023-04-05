@@ -32,8 +32,10 @@ $orgChart = @{
     "Technical Support Representative" = "Aaliyah Ahmed"
     "Customer Success Manager" = "Tariq Khan"
 }
-# Create the organizational units
-New-ADOrganizationalUnit -Name "Engineering" -Path "DC=sunflow,DC=local"
-New-ADOrganizationalUnit -Name "Operations" -Path "DC=sunflow,DC=local"
-New-ADOrganizationalUnit -Name "Sales & Marketing" -Path "DC=sunflow,DC=local"
-New-ADOrganizationalUnit -Name "Customer Service" -Path "DC=sunflow,DC=local"
+
+
+# Create Organizational Units
+New-ADOrganizationalUnit -Name "Engineering Department" -Path "DC=sunflow,DC=local"
+New-ADOrganizationalUnit -Name "Operations Department" -Path "DC=sunflow,DC=local"
+New-ADOrganizationalUnit -Name "Sales & Marketing Department" -Path "DC=sunflow,DC=local"
+New-ADOrganizationalUnit -Name "Customer Service Department" -Path "DC=sunflow,DC=local"
