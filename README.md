@@ -1,2 +1,5 @@
-# Scripts
-Repository for projects scripts OPS301
+### varBROS individual scripts
+
+- [x] Rename
+- [x] Update the website
+- [ ] Contact the media
