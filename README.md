@@ -7,6 +7,6 @@
 - [x] [Installs DNS](https://github.com/varBROS/Scripts/blob/main/InstallDNS-p2.ps1) :heavy_check_mark:
 - [x] [Rename](https://github.com/varBROS/Scripts/blob/main/Rename.ps1) :heavy_check_mark:
 - [x] [Creates AD](https://github.com/varBROS/Scripts/blob/main/creates-AD-DS.ps1) :heavy_check_mark:
-- [x] [Rename](https://github.com/varBROS/Scripts/blob/main/Rename.ps1) :heavy_check_mark:
+- [x] [Promote to DC](https://github.com/varBROS/Scripts/blob/main/promoteToDC-p3.ps1) :heavy_check_mark:
 - [x] [Rename](https://github.com/varBROS/Scripts/blob/main/Rename.ps1) :heavy_check_mark:
 - [x] [Rename](https://github.com/varBROS/Scripts/blob/main/Rename.ps1) :heavy_check_mark:
