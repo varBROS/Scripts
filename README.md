@@ -34,6 +34,8 @@ After setting up the script for continuity the first step to is to setup the too
     Import-Module ADDSDeployment
     #Restart Server
     Restart-Computer -Force
+    
+***AT THIS POINT THE COMPUTER RESTARTS TO APPLY CHANGES***
 
 - Step 2
 >>
@@ -51,8 +53,10 @@ After setting up the script for continuity the first step to is to setup the too
     -SysvolPath "C:\Windows\SYSVOL" `
     -Force:$true
     
+***AT THIS POINT THE COMPUTER RESTARTS TO APPLY CHANGES***
+    
 - Step 3
-
+>>
     #Set the DNS server to use the specified IP address
     $netAdapter = Get-NetAdapter | Where-Object {$_.Status -eq "Up"}
     Set-DnsClientServerAddress -InterfaceIndex $netAdapter.ifIndex -ServerAddresses “192.168.1.1”
