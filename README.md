@@ -13,6 +13,7 @@ To accomplish all the task above. We separated our script into dirent files beca
 
 We accomplished automation by commanding the scripts to copy the next script file in line to the StartUp folder while simultaneously deleting itself from the folder.
 For example:
+
     #Set startup folder var
     $startup_folder = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 
