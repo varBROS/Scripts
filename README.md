@@ -23,6 +23,33 @@ For example:
     $current_dir = Get-Location
 
     Copy-Item -Path "$current_dir\Part3.ps1" -Destination $startup_folder -Force
+    
+After setting up the script for continuity the first step to is to setup the tool used to stand up the DC
+
+- Step one
+    
+    #Installs Active Directory Domain Services(ADDS) and DNS
+    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+    Install-WindowsFeature -Name DNS -IncludeManagementTools
+    Import-Module ADDSDeployment
+    #Restart Server
+    Restart-Computer -Force
+
+- Step 2
+
+    # Promote Server to DC
+    Install-ADDSForest `
+    -CreateDnsDelegation:$false `
+    -DatabasePath "C:\Windows\NTDS" `
+    -DomainMode "WinThreshold" `
+    -DomainName "sunflow.local" `
+    -DomainNetbiosName "Sunflow" `
+    -ForestMode "WinThreshold" `
+    -InstallDns:$true `
+    -LogPath "C:\Windows\NTDS" `
+    -NoRebootOnCompletion:$false `
+    -SysvolPath "C:\Windows\SYSVOL" `
+    -Force:$true
 
 ### varBROS individual scripts
 
