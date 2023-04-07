@@ -60,7 +60,38 @@ After setting up the script for continuity the first step to is to setup the too
     #Set the DNS server to use the specified IP address
     $netAdapter = Get-NetAdapter | Where-Object {$_.Status -eq "Up"}
     Set-DnsClientServerAddress -InterfaceIndex $netAdapter.ifIndex -ServerAddresses “192.168.1.1”
+    
+- Step 4
 
+    # Set Network adapter name and IP config
+    $adapterName = "Ethernet"
+    $IPAddress = "192.168.1.9"
+    $subnetMask = "255.255.255.0"
+
+    #Use pfSense as gateway and DSN and google as a backup DSN
+    $defaultGateway = "192.168.1.1"
+    $dns1 = "192.168.1.1"
+    $dns2 = "8.8.4.4"
+
+    # Set Network adapter to use static IP
+    $interface = Get-NetAdapter -InterfaceAlias $adapterName
+    New-NetIPAddress -InterfaceIndex $interface.ifIndex -IPAddress $IPAddress -PrefixLength 24 -DefaultGateway $defaultGateway
+
+
+    # Set subnetmask
+    New-NetIPAddress -InterfaceIndex $interface.ifIndex -AddressFamily IPV4 -PrefixLength 24 -SkipAsSource $true
+
+    # Set DNS servers
+    Set-DnsClientServerAddress -InterfaceAlias $adapterName -ServerAddresses @($dns1, $dns2)
+
+>> Step 4,1
+    #Define variables for the old and new computer names
+    $oldName = $env:COMPUTERNAME
+    $newName = "SunflowServer"
+    #Rename the computer
+    Rename-Computer -ComputerName $oldName -NewName $newName -Force -Restart
+
+    
 ### varBROS individual scripts
 
 Group member colors:
