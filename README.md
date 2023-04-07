@@ -63,7 +63,7 @@ After setting up the script for continuity the first step to is to setup the too
     
 - Step 4
 
-    # Set Network adapter name and IP config
+    #Set Network adapter name and IP config
     $adapterName = "Ethernet"
     $IPAddress = "192.168.1.9"
     $subnetMask = "255.255.255.0"
@@ -73,18 +73,19 @@ After setting up the script for continuity the first step to is to setup the too
     $dns1 = "192.168.1.1"
     $dns2 = "8.8.4.4"
 
-    # Set Network adapter to use static IP
+    #Set Network adapter to use static IP
     $interface = Get-NetAdapter -InterfaceAlias $adapterName
     New-NetIPAddress -InterfaceIndex $interface.ifIndex -IPAddress $IPAddress -PrefixLength 24 -DefaultGateway $defaultGateway
 
 
-    # Set subnetmask
+    #Set subnetmask
     New-NetIPAddress -InterfaceIndex $interface.ifIndex -AddressFamily IPV4 -PrefixLength 24 -SkipAsSource $true
 
-    # Set DNS servers
+    #Set DNS servers
     Set-DnsClientServerAddress -InterfaceAlias $adapterName -ServerAddresses @($dns1, $dns2)
 
->> Step 4,1
+- Step 5
+
     #Define variables for the old and new computer names
     $oldName = $env:COMPUTERNAME
     $newName = "SunflowServer"
