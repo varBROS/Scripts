@@ -27,7 +27,7 @@ For example:
 After setting up the script for continuity the first step to is to setup the tool used to stand up the DC
 
 - Step one
-    
+>>    
     #Installs Active Directory Domain Services(ADDS) and DNS
     Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
     Install-WindowsFeature -Name DNS -IncludeManagementTools
