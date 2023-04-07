@@ -50,6 +50,12 @@ After setting up the script for continuity the first step to is to setup the too
     -NoRebootOnCompletion:$false `
     -SysvolPath "C:\Windows\SYSVOL" `
     -Force:$true
+    
+- Step 3
+
+    #Set the DNS server to use the specified IP address
+    $netAdapter = Get-NetAdapter | Where-Object {$_.Status -eq "Up"}
+    Set-DnsClientServerAddress -InterfaceIndex $netAdapter.ifIndex -ServerAddresses “192.168.1.1”
 
 ### varBROS individual scripts
 
