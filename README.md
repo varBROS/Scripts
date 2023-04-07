@@ -1,3 +1,28 @@
+## Overview
+The following script is a powershell script design to stand up a Directory controller in Windows Server 2019.
+The script takes each step and accomplishes it's task before calling on the next.
+The powershell script is to accomplish the following:
+1. Install Active-Directory Domain Services(ADDS)
+2. Install Active-Directory Domain Name System(ADDS)
+3. Promote the Windows Server to Domain Controller(DC)
+4. Reserve static IP address and DNS
+5. Create an AD Forest, Organizational Units (OU), and users
+
+## Breakdown
+To accomplish all the task above. We separated our script into dirent files because some of the steps require the machine to restart for changes to take effect.
+
+We accomplished automation by commanding the scripts to copy the next script file in line to the StartUp folder while simultaneously deleting itself from the folder.
+For example:
+    #Set startup folder var
+    $startup_folder = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+
+    #Remove and Set next script
+    Remove-Item -Path "$startup_folder\Part2.ps1" -Force
+
+    $current_dir = Get-Location
+
+    Copy-Item -Path "$current_dir\Part3.ps1" -Destination $startup_folder -Force
+
 ### varBROS individual scripts
 
 Group member colors:
