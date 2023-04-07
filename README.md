@@ -62,7 +62,7 @@ After setting up the script for continuity the first step to is to setup the too
     Set-DnsClientServerAddress -InterfaceIndex $netAdapter.ifIndex -ServerAddresses “192.168.1.1”
     
 - Step 4
-
+>>
     #Set Network adapter name and IP config
     $adapterName = "Ethernet"
     $IPAddress = "192.168.1.9"
@@ -85,7 +85,7 @@ After setting up the script for continuity the first step to is to setup the too
     Set-DnsClientServerAddress -InterfaceAlias $adapterName -ServerAddresses @($dns1, $dns2)
 
 - Step 5
-
+>>
     #Define variables for the old and new computer names
     $oldName = $env:COMPUTERNAME
     $newName = "SunflowServer"
