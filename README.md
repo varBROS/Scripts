@@ -36,7 +36,7 @@ After setting up the script for continuity the first step to is to setup the too
     Restart-Computer -Force
 
 - Step 2
-
+>>
     # Promote Server to DC
     Install-ADDSForest `
     -CreateDnsDelegation:$false `
