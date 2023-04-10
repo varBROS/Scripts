@@ -92,6 +92,9 @@ After setting up the script for continuity the first step to is to setup the too
     #Rename the computer
     Rename-Computer -ComputerName $oldName -NewName $newName -Force -Restart
 
+***AT THIS POINT THE COMPUTER RESTARTS TO APPLY CHANGES***
+
+
     
 ### varBROS individual scripts
 
